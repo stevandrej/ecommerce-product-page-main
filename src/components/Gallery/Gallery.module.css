@@ -1,0 +1,21 @@
+.gallery {
+    display: flex;
+    flex-direction: column;
+}
+
+.image-main {
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.images-list {
+    display: flex;
+    padding: 0;
+    list-style: none;
+    gap: 20px;
+}
+
+.images-list li {
+    overflow: hidden;
+    border-radius: 10px;
+}

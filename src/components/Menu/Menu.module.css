@@ -1,0 +1,81 @@
+.navbar {
+    display: flex;
+    align-items: flex-start;
+    border-bottom: 1px solid var(--body-secondary);
+    padding-top: 30px;
+}
+
+.logo {
+    display: inline-block;
+    margin-right: 40px;
+}
+
+.menu {
+    display: flex;
+    font-size: 1.5rem;
+    font-weight: 400;
+    list-style: none;
+    height: 66px;
+}
+
+.menu li {
+    font-size: inherit;
+    font-weight: inherit;
+    height: 100%;
+    transition: border-width ease-in .2s;
+}
+
+.menu li:not(:last-child) {
+    margin-right: 40px;
+}
+
+.menu li:hover {
+    cursor: pointer;
+    border-bottom: 3px solid var(--primary);
+}
+
+.user-menu{
+    margin-left: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-clean{
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+}
+
+.cart{
+    position: relative;
+    padding: 8px;
+}
+
+.badge{
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: var(--primary);
+    color: var(--body-primary);
+    font-size: 1rem;
+    padding: 0 8px;
+    border-radius: 8px;
+}
+
+.user{
+    margin-left: 40px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid transparent;
+    transition: border cubic-bezier(0.215, 0.610, 0.355, 1) .2s;
+}
+
+.user:hover{
+    padding: 0;
+    border: 2px solid var(--primary);
+}

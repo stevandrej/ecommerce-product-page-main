@@ -1,0 +1,13 @@
+:root {
+    --primary: hsl(26, 100%, 55%);
+    --primary-light: hsl(25, 100%, 94%);
+
+    --body-primary: hsl(0, 0%, 100%);
+    --body-secondary: hsl(220, 14%, 75%);
+
+    --shadows: hsl(223, 64%, 98%);
+    --lightbox-background: rgba(0, 0, 0, .75);
+
+    --text-primary: hsl(220, 13%, 13%);
+    --text-secondary: hsl(219, 9%, 45%);
+}
