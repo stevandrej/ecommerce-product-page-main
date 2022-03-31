@@ -2,6 +2,8 @@ import styles from "./Menu.module.css";
 import logo from "images/logo.svg";
 import cartIcon from "images/icon-cart.svg";
 import userIcon from "images/image-avatar.png";
+import { useContext } from "react";
+import { CartContext } from "store/cart";
 
 const Menu = () => {
   const menu = [
@@ -27,6 +29,17 @@ const Menu = () => {
     },
   ];
 
+  const cartContext = useContext(CartContext);
+
+  const calculateCartQuantity = () => {
+    let q = 0;
+    cartContext.cart.forEach((item) => {
+      console.log(item.quantity)
+      q = q + item.quantity;
+    });
+    return q;
+  };
+
   return (
     <nav className={styles.navbar}>
       <img
@@ -44,9 +57,11 @@ const Menu = () => {
       <div className={styles["user-menu"]}>
         <button className={`${styles["button-clean"]} ${styles.cart}`}>
           <img src={cartIcon} alt="cart icon" />
-		  <span className={styles.badge}>3</span>
+          {cartContext.cart?.length > 0 ? (
+            <span className={styles.badge}>{calculateCartQuantity()}</span>
+          ) : null}
         </button>
-		
+
         <button className={`${styles["button-clean"]} ${styles.user}`}>
           <img src={userIcon} alt="user" />
         </button>
