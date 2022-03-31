@@ -22,7 +22,6 @@
     font-size: inherit;
     font-weight: inherit;
     height: 100%;
-    transition: border-width ease-in .2s;
 }
 
 .menu li:not(:last-child) {
