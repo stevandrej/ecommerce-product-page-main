@@ -12,8 +12,8 @@ const Product = () => {
     brand: "SNEAKER COMPANY",
     description:
       "These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they'll withstand everything the weather can offer.",
-    price: "250.00",
-    sale: "125.00",
+    price: 250.0,
+    sale: 125.0,
     discount_percent: "50%",
   };
 

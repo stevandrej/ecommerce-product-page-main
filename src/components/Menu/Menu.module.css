@@ -33,14 +33,14 @@
     border-bottom: 3px solid var(--primary);
 }
 
-.user-menu{
+.user-menu {
     margin-left: auto;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.button-clean{
+.button-clean {
     border: none;
     background: none;
     cursor: pointer;
@@ -48,12 +48,16 @@
     margin: 0;
 }
 
-.cart{
+.cart-wrapper {
     position: relative;
-    padding: 8px;
 }
 
-.badge{
+.cart {
+    padding: 8px;
+    transition: transform ease-in-out .2s;
+}
+
+.badge {
     position: absolute;
     top: 0;
     right: 0;
@@ -64,7 +68,7 @@
     border-radius: 8px;
 }
 
-.user{
+.user {
     margin-left: 40px;
     width: 48px;
     height: 48px;
@@ -74,7 +78,7 @@
     transition: border cubic-bezier(0.215, 0.610, 0.355, 1) .2s;
 }
 
-.user:hover{
+.user:hover {
     padding: 0;
     border: 2px solid var(--primary);
 }
