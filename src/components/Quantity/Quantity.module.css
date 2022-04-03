@@ -19,7 +19,7 @@
     padding: 12px;
 }
 
-.quantity button{
+.quantity button {
     border: none;
     background-color: transparent;
     width: 24px;
@@ -27,7 +27,22 @@
     cursor: pointer;
 }
 
-.quantity input{
+.quantity button,
+.quantity button img {
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Safari */
+    -khtml-user-select: none;
+    /* Konqueror HTML */
+    -moz-user-select: none;
+    /* Old versions of Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+}
+
+.quantity input {
     background-color: transparent;
     border: none;
     outline: none;
