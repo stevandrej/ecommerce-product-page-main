@@ -1,19 +1,7 @@
-import React, { useState } from "react";
+import { createStore } from "redux";
+import rootReducer from "redux/rootReducer";
+import { composeWithDevTools } from "redux-devtools-extension";
 
-export const CartContext = React.createContext();
+const store = createStore(rootReducer, composeWithDevTools());
 
-const CartContextProvider = (props) => {
-  const [cart, setCart] = useState([]);
-
-  const addToCart = (payload) => {
-    setCart([...cart, payload]);
-  };
-
-  return (
-    <CartContext.Provider value={{ cart, addToCart }}>
-      {props.children}
-    </CartContext.Provider>
-  );
-};
-
-export default CartContextProvider;
+export default store;

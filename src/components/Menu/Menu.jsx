@@ -2,9 +2,9 @@ import styles from "./Menu.module.css";
 import logo from "images/logo.svg";
 import cartIcon from "images/icon-cart.svg";
 import userIcon from "images/image-avatar.png";
-import { useContext, useState } from "react";
-import { CartContext } from "store/cart";
+import { useState } from "react";
 import ModalCart from "components/ModalCart/ModalCart";
+import { useSelector } from "react-redux";
 
 const Menu = () => {
   const menu = [
@@ -30,7 +30,7 @@ const Menu = () => {
     },
   ];
 
-  const cartContext = useContext(CartContext);
+  const cart = useSelector((state) => state.cartReducer.cart);
   const [modal, setModal] = useState(false);
   const handleToggleModal = () => {
     setModal(!modal);
@@ -38,7 +38,7 @@ const Menu = () => {
 
   const calculateCartQuantity = () => {
     let q = 0;
-    cartContext.cart.forEach((item) => {
+    cart.forEach((item) => {
       console.log(item.quantity);
       q = q + item.quantity;
     });
@@ -69,7 +69,7 @@ const Menu = () => {
             onClick={handleToggleModal}
           >
             <img src={cartIcon} alt="cart icon" />
-            {cartContext.cart?.length > 0 ? (
+            {cart?.length > 0 ? (
               <span className={styles.badge}>{calculateCartQuantity()}</span>
             ) : null}
           </button>

@@ -1,11 +1,11 @@
 import styles from "./ModalCart.module.css";
 import productThumbnail from "images/image-product-1-thumbnail.jpg";
 import trashIcon from "images/icon-delete.svg";
-import { useContext } from "react";
-import { CartContext } from "store/cart";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteFromCart } from "redux/actions";
 
 const ModalCart = ({ open, onClose = () => {} }) => {
-  const cartContext = useContext(CartContext);
+  const cart = useSelector((state) => state.cartReducer.cart);
 
   return open ? (
     <>
@@ -14,8 +14,8 @@ const ModalCart = ({ open, onClose = () => {} }) => {
         <div className={`${styles.heading} text-emphasize`}>Cart</div>
         <div className={styles.content}>
           <ul className={styles["cart-list"]}>
-            {cartContext.cart.length > 0 ? (
-              cartContext.cart.map((item, index) => {
+            {cart.length > 0 ? (
+              cart.map((item, index) => {
                 return (
                   <CartItem
                     key={`${item.product.id}_${index}`}
@@ -24,6 +24,7 @@ const ModalCart = ({ open, onClose = () => {} }) => {
                       item.product.sale ? item.product.sale : item.product.price
                     }
                     quantity={item.quantity}
+                    id={item.product.id}
                   />
                 );
               })
@@ -38,7 +39,13 @@ const ModalCart = ({ open, onClose = () => {} }) => {
   ) : null;
 };
 
-const CartItem = ({ name = "", price = 0, quantity = 0 }) => {
+const CartItem = ({ name = "", price = 0, quantity = 0, id }) => {
+  const dispatch = useDispatch();
+
+  const handleDelete = (id) => {
+    dispatch(deleteFromCart(id));
+  };
+
   return (
     <li className={styles["list-item"]}>
       <img
@@ -57,7 +64,12 @@ const CartItem = ({ name = "", price = 0, quantity = 0 }) => {
           </span>
         </div>
       </div>
-      <div className={styles.delete}>
+      <div
+        className={styles.delete}
+        onClick={() => {
+          handleDelete(id);
+        }}
+      >
         <img src={trashIcon} alt="delete" />
       </div>
     </li>

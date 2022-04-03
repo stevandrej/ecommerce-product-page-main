@@ -2,8 +2,9 @@ import styles from "./Product.module.css";
 import ButtonCart from "components/ButtonCart/ButtonCart";
 import Quantity from "components/Quantity/Quantity";
 import Gallery from "components/Gallery/Gallery";
-import { useContext, useState } from "react";
-import { CartContext } from "store/cart";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addToCart } from "redux/actions";
 
 const Product = () => {
   const currentProduct = {
@@ -17,18 +18,17 @@ const Product = () => {
     discount_percent: "50%",
   };
 
-  const cartContext = useContext(CartContext);
+  const dispatch = useDispatch();
   const [quantity, setQuantity] = useState(0);
 
   const handleAddToCart = () => {
-    if (quantity > 0)
-      cartContext.addToCart({
+    dispatch(
+      addToCart({
         product: currentProduct,
-        quantity: quantity,
-      });
+        quantity,
+      })
+    );
   };
-
-  console.log(cartContext.cart);
 
   return (
     <div className={`page ${styles["product-page"]}`}>
